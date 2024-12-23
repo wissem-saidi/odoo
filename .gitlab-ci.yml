@@ -1,0 +1,11 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: docker/compose:latest
+  script:
+    - echo "Mise à jour des modules et redémarrage de Docker..."
+    - bash /home/odoo17/update_and_restart.sh
+  only:
+    - dev
